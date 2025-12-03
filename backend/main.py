@@ -5,8 +5,9 @@ from agents import (
     Agent,
     Runner,
 )
+import os
 
-from types import SimpleNamespace
+from typing import List, Literal
 
 from my_config import config, gemini_key
 
@@ -20,8 +21,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+class ChatMessage(BaseModel):
+    role: Literal["user", "bot"]
+    text: str
+
 class ChatRequest(BaseModel):
-    messages: List[Dict[Literal["role", "text"], str]]
+    messages: List[ChatMessage]
 
 
 @app.post("/ask")
@@ -69,39 +74,21 @@ async def chat(request: ChatRequest):
 
     print("⚙️ Running agent (Non-Streamed)...")
 
-    try:
-        # 2. Prepare the input string from messages
-        conversation_input = "\n".join(
-            [f"{message['role']}: {message['text']}" for message in request.messages]
-        )
+    # 2. Prepare the input string from messages
+    conversation_input = "\n".join(
+        [f"{msg.role}: {msg.text}" for msg in request.messages]
+    )
 
-        # 3. Run the Agent simply (No streaming)
-        # Note: We use Runner.run instead of Runner.run_streamed
-        result = await Runner.run(
-            agent,
-            input=conversation_input,
-            run_config=config,
-        )
+    # 3. Run the Agent simply (No streaming)
+    result = await Runner.run(
+        agent,
+        input=conversation_input,
+        run_config=config,
+    )
 
-        
-        print("✅ Response generated successfully")
-        
-        return {"role": "bot", "text": result.final_output}
-
-    except InputGuardrailTripwireTriggered:
-        alert_msg = "Alert: Guardrail input tripwire was triggered!"
-        print(alert_msg)
-        return {"error": alert_msg}
-
-    except OutputGuardrailTripwireTriggered:
-        alert_msg = "Alert: Guardrail output tripwire was triggered!"
-        print(alert_msg)
-        return {"error": alert_msg}
-
-    except Exception as e:
-        print("❌ Error:", str(e))
-        return {"error": str(e)}
-
+    print("✅ Response generated successfully")
+    
+    return {"role": "bot", "text": result.final_output}
 
 
 @app.get("/")
