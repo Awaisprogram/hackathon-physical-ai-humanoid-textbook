@@ -50,6 +50,20 @@ This project is a Docusaurus-based book platform integrated with a RAG (Retrieva
 *   **Components:** Building UI for session management and authentication forms.
 
 ## **Next Steps**
-*   [ ] **Connect RAG Backend:** Link the Python backend with the React frontend for full QA functionality.
+
+Implement user-specific context memory for personalized interactions..
 *   [ ] **Implement Better Auth:** Complete frontend and backend integration for user security.
-*   [ ] **Upgrade Translation:** Replace the mock Urdu translation logic with a real translation API.
+*   [ ] **Enhanced RAG Chatbot**
+*   **Pipeline Integration:** Integrate the full Retrieval-Augmented Generation (RAG) pipeline.
+*   **Vector Search:** Replace mock APIs with real document embeddings and vector search using **Qdrant** (or another vector database).
+*   **Contextual Responses:** Add context-aware responses for user queries based on specific book content.
+*   **Memory:** Implement user-specific context memory for personalized interactions.
+
+    [ ] ** User Data Storage with Neon**
+*   **Database:** Store authenticated user data securely using **Neon (Postgres)**.
+*   **Activity Tracking:** Track specific user activities, such as:
+    *   Chapters read
+    *   Questions asked
+    *   Preferred language (English/Urdu)
+*   **Personalization:** Support personalized recommendations and progress tracking.
+*   **Integration:** Integrate with **Better Auth** to manage session-linked user data.
