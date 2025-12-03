@@ -10,6 +10,6 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "chat_api.py" }
+    { "src": "/(.*)", "dest": "main.py" }
   ]
 }
