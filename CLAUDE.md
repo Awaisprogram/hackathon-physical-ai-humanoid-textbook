@@ -208,3 +208,12 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Python (FastAPI backend), JavaScript/TypeScript (Docusaurus frontend) + Docusaurus, FastAPI, Neon Serverless Postgres, Qdrant Cloud, better-auth, OpenAI Agents / ChatKit SDK (001-book-rag-chatbot)
+- Neon Serverless Postgres (structured data), Qdrant Cloud (vector storage) (001-book-rag-chatbot)
+- Python 3.11 + FastAPI, openai-agents, python-dotenv, qdrant-client, uvicorn (003-rag-chatbot-backend-init)
+- Qdrant Cloud (vector storage), Neon Serverless Postgres (structured data) (003-rag-chatbot-backend-init)
+
+## Recent Changes
+- 001-book-rag-chatbot: Added Python (FastAPI backend), JavaScript/TypeScript (Docusaurus frontend) + Docusaurus, FastAPI, Neon Serverless Postgres, Qdrant Cloud, better-auth, OpenAI Agents / ChatKit SDK

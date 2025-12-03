@@ -1,0 +1,347 @@
+/* --- Theme Variables --- */
+:root {
+  /* Dark Theme (Default) */
+  --hero-bg: #050505;
+  --hero-text: #fff;
+  --hero-subtitle: #a0a0b0;
+  --hero-subtitle-strong: #fff;
+  --grid-color: rgba(0, 243, 255, 0.1);
+  --glow-color: rgba(0, 243, 255, 0.15);
+  --badge-bg: rgba(0, 243, 255, 0.1);
+  --badge-border: rgba(0, 243, 255, 0.3);
+  --badge-text: #00f3ff;
+  --tech-label: #666;
+  --tech-chip-bg: rgba(255, 255, 255, 0.05);
+  --tech-chip-border: #444;
+  --tech-chip-text: #ccc;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-header-bg: rgba(0, 0, 0, 0.2);
+  --card-header-border: rgba(255, 255, 255, 0.05);
+  --card-title: #666;
+  --outline-btn-border: rgba(255, 255, 255, 0.3);
+  --outline-btn-hover-bg: rgba(255, 255, 255, 0.05);
+  --scroll-indicator: #fff;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --hero-bg: #f5f5f5;
+  --hero-text: #1a1a1a;
+  --hero-subtitle: #4a4a5a;
+  --hero-subtitle-strong: #000;
+  --grid-color: rgba(0, 102, 255, 0.08);
+  --glow-color: rgba(0, 102, 255, 0.1);
+  --badge-bg: rgba(0, 102, 255, 0.1);
+  --badge-border: rgba(0, 102, 255, 0.3);
+  --badge-text: #0066ff;
+  --tech-label: #999;
+  --tech-chip-bg: rgba(0, 0, 0, 0.05);
+  --tech-chip-border: #ddd;
+  --tech-chip-text: #333;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --card-header-bg: rgba(0, 0, 0, 0.03);
+  --card-header-border: rgba(0, 0, 0, 0.05);
+  --card-title: #999;
+  --outline-btn-border: rgba(0, 0, 0, 0.3);
+  --outline-btn-hover-bg: rgba(0, 0, 0, 0.05);
+  --scroll-indicator: #333;
+}
+
+/* --- Layout & Container --- */
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+  padding-top: 60px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.gridSystem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* --- Animated Backgrounds --- */
+.bgGrid {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg) scale(2);
+  transform-origin: top center;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  transition: background-image 0.3s ease;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, var(--glow-color) 0%, rgba(0,0,0,0) 70%);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 500px; }
+}
+
+/* --- Typography --- */
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--hero-text);
+  transition: color 0.3s ease;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #00f3ff 0%, #0066ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--hero-subtitle);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.heroSubtitle strong {
+  color: var(--hero-subtitle-strong);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  border-radius: 20px;
+  color: var(--badge-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Tech Stack Chips --- */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.techLabel {
+  font-size: 0.9rem;
+  color: var(--tech-label);
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.techChip {
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: var(--tech-chip-bg);
+  border: 1px solid var(--tech-chip-border);
+  color: var(--tech-chip-text);
+  font-family: monospace;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Buttons --- */
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.glowButton {
+  background: #00f3ff !important;
+  color: #000 !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glowButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+  text-decoration: none;
+}
+
+.outlineButton {
+  background: transparent !important;
+  border: 1px solid var(--outline-btn-border) !important;
+  color: var(--hero-text) !important;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.outlineButton:hover {
+  border-color: var(--hero-text) !important;
+  background: var(--outline-btn-hover-bg) !important;
+}
+
+/* --- Right Column / Glass Card --- */
+.visualCol {
+  display: flex;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.glassCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .glassCard {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.cardHeader {
+  background: var(--card-header-bg);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--card-header-border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.dotRed, .dotYellow, .dotGreen {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.dotRed { background: #ff5f56; }
+.dotYellow { background: #ffbd2e; }
+.dotGreen { background: #27c93f; }
+
+.cardTitle {
+  margin-left: auto;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--card-title);
+  transition: color 0.3s ease;
+}
+
+.chatbotWrapper {
+  padding: 20px;
+  min-height: 300px; 
+}
+
+/* --- Scroll Indicator --- */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--scroll-indicator);
+  transition: color 0.3s ease;
+}
+
+.arrowDown {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--scroll-indicator);
+  border-bottom: 2px solid var(--scroll-indicator);
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+  transition: border-color 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(45deg);}
+  40% {transform: translateY(-10px) rotate(45deg);}
+  60% {transform: translateY(-5px) rotate(45deg);}
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 996px) {
+  .heroWrapper {
+    height: auto;
+    min-height: auto;
+    padding: 4rem 0;
+  }
+  
+  .gridSystem {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .contentCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .techStack {
+    justify-content: center;
+  }
+
+  .heroSubtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .scrollIndicator {
+    display: none;
+  }
+}

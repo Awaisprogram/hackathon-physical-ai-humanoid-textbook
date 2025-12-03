@@ -1,55 +1,61 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report:
+Version change: 0.0.0 -> 1.0.0
+Modified principles: None (initial population)
+Added sections: Core Principles, Hackathon Requirements, Success Criteria, Governance
+Removed sections: None
+Templates requiring updates:
+- .specify/templates/plan-template.md: ✅ updated
+- .specify/templates/spec-template.md: ✅ updated
+- .specify/templates/tasks-template.md: ✅ updated
+- .specify/templates/commands/*.md: ✅ updated
+Follow-up TODOs: None
+-->
+# Docusaurus RAG Chatbot Technical Book Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. High Modularity
+High modularity across frontend, backend, and AI layers.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Strict Reproducibility
+Strict reproducibility through Spec-Kit steps.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Clean Architecture
+Clean architecture (separation of concerns).
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Portable & Environment-Independent
+Portable and environment-independent development.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Fully Versioned Artifacts
+Fully versioned artifacts with explicit ADRs.
 
-### [PRINCIPLE_6_NAME]
+### VI. Spec-Kit Conventions
+All interactions and artifacts MUST be stored in specs/ following Spec-Kit conventions.
 
+## Hackathon Requirements
 
-[PRINCIPLE__DESCRIPTION]
+Hackathon scoring requires:
+- A complete Docusaurus book deployed live.
+- RAG chatbot fully functional.
+- Backend using FastAPI + Neon + Qdrant.
+- Ability to answer questions on selected book text.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Bonus scoring:
+- +50 – Reusable intelligence (subagents & skills)
+- +50 – Sign-up/Sign-in with better-auth
+- +50 – Per-chapter personalization
+- +50 – Per-chapter Urdu translation
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Success Criteria
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Book loads correctly on GitHub Pages
+- Chatbot reliably answers contextual questions from book text
+- Vector search performance is accurate and fast
+- Authentication and user data logging function as required
+- Personalization and translation features work seamlessly
+- All work traceable end-to-end through Spec-Kit logs
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution supersedes all other practices. Amendments require documentation, approval, and a migration plan. All work is traceable end-to-end through Spec-Kit logs.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-02 | **Last Amended**: 2025-12-02
