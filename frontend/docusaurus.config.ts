@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://hackathon-physical-ai-humanoid-text-ten.vercel.app',
   baseUrl: '/',
 
   organizationName: 'your-org',
