@@ -5,7 +5,7 @@ from agents import AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig
 
 load_dotenv()
 
-openrouter_key = os.getenv("GEMINI_API_KEY")
+openrouter_key = os.getenv("OPENROUTER_API_KEY")
 
 if not openrouter_key:
     raise ValueError("OPENROUTER_API_KEY not found in environment variables")
@@ -16,7 +16,7 @@ openrouter_client = AsyncOpenAI(
 )
 
 openrouter_model = OpenAIChatCompletionsModel(
-    model="google/gemini-2.0-flash-exp:free",  # Better free model
+    model="meta-llama/llama-3.3-70b-instruct:free",  # Better free model
     openai_client=openrouter_client
 )
 
