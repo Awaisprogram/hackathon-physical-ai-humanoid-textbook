@@ -214,6 +214,8 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 - Neon Serverless Postgres (structured data), Qdrant Cloud (vector storage) (001-book-rag-chatbot)
 - Python 3.11 + FastAPI, openai-agents, python-dotenv, qdrant-client, uvicorn (003-rag-chatbot-backend-init)
 - Qdrant Cloud (vector storage), Neon Serverless Postgres (structured data) (003-rag-chatbot-backend-init)
+- Python 3.11 + FastAPI, qdrant-client, cohere, python-dotenv, PyPDF2/docx2tx (007-qdrant-rag-setup)
+- Qdrant vector database cloud service (007-qdrant-rag-setup)
 
 ## Recent Changes
 - 001-book-rag-chatbot: Added Python (FastAPI backend), JavaScript/TypeScript (Docusaurus frontend) + Docusaurus, FastAPI, Neon Serverless Postgres, Qdrant Cloud, better-auth, OpenAI Agents / ChatKit SDK

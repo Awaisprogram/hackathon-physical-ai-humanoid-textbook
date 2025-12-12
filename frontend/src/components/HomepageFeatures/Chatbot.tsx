@@ -73,7 +73,7 @@ export default function AIAssistantWidget() {
     // console.log("backend url:", customFields.BACKEND_URL);
 
     try {
-      const res = await fetch(`https://textbook-backend.vercel.app/ask`, {
+      const res = await fetch(`http://localhost:8000/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newMessages }),
