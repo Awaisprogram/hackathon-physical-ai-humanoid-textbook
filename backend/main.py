@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 # --- CHATBOT ----
 from agents import Agent, Runner 
 from my_config import openrouter_key, open_router_config
-from retrieving import retrieve
+from qdrant.retrieving import retrieve
 
 # --- AUTH & DB IMPORTS ---
 from auth.db import init_db, get_session
