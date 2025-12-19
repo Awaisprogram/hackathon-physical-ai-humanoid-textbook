@@ -1,0 +1,200 @@
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Size variations */
+.auth-button--sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.auth-button--md {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+.auth-button--lg {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Width variations */
+.auth-button--full-width {
+  width: 100%;
+}
+
+/* Variant styles */
+.auth-button--primary {
+  background-color: #10b981; /* green-500 */
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.auth-button--primary:hover:not(.auth-button--disabled) {
+  background-color: #059669; /* green-600 */
+  transform: scale(1.02);
+}
+
+.auth-button--primary:active:not(.auth-button--disabled) {
+  transform: scale(0.98);
+}
+
+.auth-button--secondary {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.auth-button--secondary:hover:not(.auth-button--disabled) {
+  background-color: #2563eb; /* blue-600 */
+  transform: scale(1.02);
+}
+
+.auth-button--secondary:active:not(.auth-button--disabled) {
+  transform: scale(0.98);
+}
+
+.auth-button--ghost {
+  background-color: transparent;
+  color: #10b981; /* green-500 */
+  border: 1px solid transparent;
+}
+
+.auth-button--ghost:hover:not(.auth-button--disabled) {
+  background-color: rgba(16, 185, 129, 0.1); /* green-500 with 10% opacity */
+  transform: scale(1.02);
+}
+
+.auth-button--ghost:active:not(.auth-button--disabled) {
+  transform: scale(0.98);
+}
+
+.auth-button--outline {
+  background-color: transparent;
+  color: #10b981; /* green-500 */
+  border: 2px solid #10b981; /* green-500 */
+}
+
+.auth-button--outline:hover:not(.auth-button--disabled) {
+  background-color: #10b981; /* green-500 */
+  color: white;
+  transform: scale(1.02);
+}
+
+.auth-button--outline:active:not(.auth-button--disabled) {
+  transform: scale(0.98);
+}
+
+/* Loading state */
+.auth-button--loading {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.auth-button--loading .auth-button__content {
+  opacity: 0.7;
+}
+
+/* Disabled state */
+.auth-button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.auth-button--disabled:hover {
+  transform: none !important;
+}
+
+/* Content container */
+.auth-button__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Icon styles */
+.auth-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-button__icon--left {
+  margin-right: -0.25rem;
+}
+
+.auth-button__icon--right {
+  margin-left: -0.25rem;
+}
+
+/* Spinner for loading state */
+.auth-button__spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+.auth-button--ghost .auth-button__spinner {
+  border-color: rgba(16, 185, 129, 0.3);
+  border-top-color: #10b981;
+}
+
+.auth-button--outline .auth-button__spinner {
+  border-color: rgba(16, 185, 129, 0.3);
+  border-top-color: #10b981;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus state */
+.auth-button:focus-visible {
+  outline: 2px solid #2563eb; /* blue-600 */
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-button--ghost {
+    color: #34d399; /* green-400 */
+  }
+
+  .auth-button--ghost:hover:not(.auth-button--disabled) {
+    background-color: rgba(52, 211, 153, 0.1); /* green-400 with 10% opacity */
+  }
+
+  .auth-button--outline {
+    color: #34d399; /* green-400 */
+    border-color: #34d399; /* green-400 */
+  }
+
+  .auth-button--outline:hover:not(.auth-button--disabled) {
+    background-color: #34d399; /* green-400 */
+    color: #1f2937; /* gray-800 */
+  }
+}

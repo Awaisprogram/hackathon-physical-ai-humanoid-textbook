@@ -6,15 +6,26 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #10b981; /* green-500 */
+  --ifm-color-primary-dark: #059669; /* green-600 */
+  --ifm-color-primary-darker: #047857; /* green-700 */
+  --ifm-color-primary-darkest: #03664f; /* darker green */
+  --ifm-color-primary-light: #34d399; /* green-400 */
+  --ifm-color-primary-lighter: #6ee7b7; /* green-300 */
+  --ifm-color-primary-lightest: #a7f3d0; /* green-200 */
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Auth-specific variables */
+  --auth-card-bg: rgba(255, 255, 255, 0.85);
+  --auth-card-border: rgba(255, 255, 255, 0.18);
+  --auth-gradient-start: #a7f3d0; /* green-200 */
+  --auth-gradient-end: #34d399; /* green-400 */
+  
+  /* Navbar auth button colors - Light Mode */
+  --auth-btn-accent: #0066ff;
+  --auth-btn-accent-hover: #0052cc;
+  --auth-btn-glow: rgba(0, 102, 255, 0.2);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,6 +38,11 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Navbar auth button colors - Dark Mode */
+  --auth-btn-accent: #00f3ff;
+  --auth-btn-accent-hover: #0066ff;
+  --auth-btn-glow: rgba(0, 243, 255, 0.3);
 }
 
 .chapter-translator-button {
@@ -50,4 +66,76 @@
 
 [data-theme='dark'] .chapter-translator-button:hover {
   background-color: var(--ifm-color-primary-dark);
+}
+
+/* ========================================
+   Navbar Auth Buttons Styling
+   ======================================== */
+
+/* Container for auth buttons */
+.navbar__items--right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Base styles for auth buttons */
+.navbar__item.navbar__link {
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+/* Login button - Outline style */
+.navbar__item.navbar__link[href*="/login"] {
+  border: 1px solid var(--auth-btn-accent);
+  color: var(--auth-btn-accent);
+  background: transparent;
+}
+
+.navbar__item.navbar__link[href*="/login"]:hover {
+  background: var(--auth-btn-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--auth-btn-glow);
+}
+
+/* Sign Up button - Filled gradient style */
+.navbar__item.navbar__link[href*="/register"],
+.navbar__item.navbar__link[href*="/signup"] {
+  background: linear-gradient(90deg, var(--auth-btn-accent) 0%, var(--auth-btn-accent-hover) 100%);
+  color: #fff !important;
+  border: none;
+}
+
+.navbar__item.navbar__link[href*="/register"]:hover,
+.navbar__item.navbar__link[href*="/signup"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--auth-btn-glow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .navbar__items--right {
+    gap: 0.5rem;
+  }
+  
+  .navbar__item.navbar__link {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile menu styling */
+@media (max-width: 768px) {
+  .menu__list .navbar__item.navbar__link[href*="/login"],
+  .menu__list .navbar__item.navbar__link[href*="/register"],
+  .menu__list .navbar__item.navbar__link[href*="/signup"] {
+    display: block;
+    width: calc(100% - 1rem);
+    text-align: center;
+    margin: 0.5rem 0.5rem;
+  }
 }

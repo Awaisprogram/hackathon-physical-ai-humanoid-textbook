@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { BsRobot } from "react-icons/bs";
-import { useChat } from "../context/chatContext";
+import { useChat } from "../../contexts/chatContext";
 
 const tooltipStyle: React.CSSProperties = {
   position: "fixed",

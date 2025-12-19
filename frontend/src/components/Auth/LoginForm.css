@@ -1,0 +1,285 @@
+/* LoginForm.css - Matching Homepage Theme */
+
+:root {
+  --auth-bg: #000;
+  --auth-card-bg: rgba(255, 255, 255, 0.03);
+  --auth-card-border: rgba(255, 255, 255, 0.1);
+  --auth-text: #fff;
+  --auth-text-muted: #ccc;
+  --auth-accent: #00f3ff;
+  --auth-accent-hover: #0066ff;
+  --auth-error: #ff4444;
+  --auth-error-bg: rgba(255, 68, 68, 0.1);
+  --auth-error-border: rgba(255, 68, 68, 0.3);
+  --auth-input-bg: rgba(255, 255, 255, 0.05);
+  --auth-input-border: rgba(255, 255, 255, 0.15);
+  --auth-input-focus: rgba(0, 243, 255, 0.4);
+  --auth-glow: rgba(0, 243, 255, 0.1);
+}
+
+[data-theme='light'] {
+  --auth-bg: #f8f9fa;
+  --auth-card-bg: rgba(255, 255, 255, 0.9);
+  --auth-card-border: rgba(0, 0, 0, 0.08);
+  --auth-text: #1a1a1a;
+  --auth-text-muted: #4a4a5a;
+  --auth-accent: #0066ff;
+  --auth-accent-hover: #0052cc;
+  --auth-error: #dc2626;
+  --auth-error-bg: rgba(220, 38, 38, 0.1);
+  --auth-error-border: rgba(220, 38, 38, 0.3);
+  --auth-input-bg: #fff;
+  --auth-input-border: rgba(0, 0, 0, 0.1);
+  --auth-input-focus: rgba(0, 102, 255, 0.3);
+  --auth-glow: rgba(0, 102, 255, 0.06);
+}
+
+/* Container */
+.auth-login-container {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--auth-bg);
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-login-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--auth-glow) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Card */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--auth-card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--auth-card-border);
+  border-radius: 16px;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+[data-theme='light'] .auth-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00f3ff 0%, #0066ff 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.auth-card-content {
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--auth-text);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: var(--auth-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Error Message */
+.auth-error-message {
+  background: var(--auth-error-bg);
+  border: 1px solid var(--auth-error-border);
+  color: var(--auth-error);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Form */
+.auth-form {
+  margin-bottom: 0;
+}
+
+.auth-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Input Field Wrapper */
+.auth-input-field {
+  width: 100%;
+}
+
+/* Target Input component styles */
+.auth-input-field input[type="email"],
+.auth-input-field input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--auth-input-bg) !important;
+  border: 1px solid var(--auth-input-border) !important;
+  border-radius: 8px;
+  color: var(--auth-text) !important;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.auth-input-field input[type="email"]:focus,
+.auth-input-field input[type="password"]:focus {
+  outline: none !important;
+  border-color: var(--auth-accent) !important;
+  box-shadow: 0 0 0 3px var(--auth-input-focus) !important;
+}
+
+.auth-input-field input::placeholder {
+  color: var(--auth-text-muted) !important;
+  opacity: 0.6;
+}
+
+.auth-input-field label {
+  display: block;
+  color: var(--auth-text) !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Checkbox */
+.auth-checkbox-group {
+  display: flex;
+  align-items: center;
+  margin: -0.25rem 0;
+}
+
+.auth-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auth-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--auth-accent);
+}
+
+.auth-checkbox-text {
+  font-size: 0.875rem;
+  color: var(--auth-text-muted);
+}
+
+/* Button Wrapper */
+.auth-button-wrapper {
+  width: 100%;
+}
+
+/* Target Button component styles */
+.auth-button-wrapper button {
+  width: 100%;
+  padding: 0.875rem 1.5rem !important;
+  background: linear-gradient(90deg, var(--auth-accent) 0%, var(--auth-accent-hover) 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.auth-button-wrapper button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 243, 255, 0.3) !important;
+}
+
+[data-theme='light'] .auth-button-wrapper button:hover:not(:disabled) {
+  box-shadow: 0 8px 16px rgba(0, 102, 255, 0.25) !important;
+}
+
+.auth-button-wrapper button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-button-wrapper button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.auth-login-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--auth-card-border);
+  text-align: center;
+}
+
+.auth-signup-link {
+  font-size: 0.875rem;
+  color: var(--auth-text-muted);
+  margin: 0;
+}
+
+.auth-link {
+  color: var(--auth-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  color: var(--auth-accent-hover);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .auth-login-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-card-content {
+    padding: 2rem;
+  }
+  
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.875rem;
+  }
+}

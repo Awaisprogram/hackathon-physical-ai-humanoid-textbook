@@ -1,0 +1,196 @@
+.auth-input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.auth-input-wrapper {
+  position: relative;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem; /* Space for indicators */
+  border: 2px solid #d1d5db; /* gray-300 */
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  color : black ;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #10b981; /* green-500 */
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); /* green-500 with 20% opacity */
+}
+
+.auth-input-label {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  padding: 0 0.25rem;
+  color: #6b7280; /* gray-500 */
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  background-color: transparent;
+  transform-origin: left top;
+}
+
+.auth-input-label.auth-input-label-float {
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: #10b981; /* green-500 */
+  background-color: white;
+}
+
+.auth-input-label-static {
+  position: static;
+  margin-bottom: 0.5rem;
+  transform: none;
+  background-color: transparent;
+}
+
+.auth-input-indicators {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  pointer-events: none;
+}
+
+.auth-input-error-icon {
+  color: #ef4444; /* red-500 */
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.auth-input-success-icon {
+  color: #10b981; /* green-500 */
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.auth-input-helper {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280; /* gray-500 */
+  min-height: 1rem;
+}
+
+.auth-input-helper.auth-input-helper-error {
+  color: #ef4444; /* red-500 */
+}
+
+/* Validation states */
+.auth-input-container.auth-input-error .auth-input {
+  border-color: #ef4444; /* red-500 */
+}
+
+.auth-input-container.auth-input-error .auth-input:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); /* red-500 with 20% opacity */
+}
+
+.auth-input-container.auth-input-success .auth-input {
+  border-color: #10b981; /* green-500 */
+}
+
+.auth-input-container.auth-input-success .auth-input:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); /* green-500 with 20% opacity */
+}
+
+.auth-input-container.auth-input-focused .auth-input {
+  border-color: #10b981; /* green-500 */
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); /* green-500 with 20% opacity */
+}
+
+/* Disabled state */
+.auth-input:disabled {
+  background-color: #f9fafb; /* gray-50 */
+  color: #9ca3af; /* gray-400 */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.auth-input:disabled + .auth-input-label {
+  color: #9ca3af; /* gray-400 */
+}
+
+/* Readonly state */
+.auth-input:read-only {
+  background-color: #f9fafb; /* gray-50 */
+  cursor: default;
+}
+
+/* Placeholder styling */
+.auth-input::placeholder {
+  color: #9ca3af; /* gray-400 */
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-input {
+    background-color: #1f2937; /* gray-800 */
+    border-color: #374151; /* gray-700 */
+    color: white;
+  }
+
+  .auth-input:focus {
+    border-color: #34d399; /* green-400 */
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); /* green-400 with 20% opacity */
+  }
+
+  .auth-input-label {
+    color: #d1d5db; /* gray-300 */
+  }
+
+  .auth-input-label.auth-input-label-float {
+    background-color: #1f2937; /* black / dark background */
+    color: #34d399; /* green-400 /* gray-800 */
+  }
+
+  .auth-input-helper {
+    color: #9ca3af; /* gray-400 */
+  }
+
+  .auth-input-helper.auth-input-helper-error {
+    color: #f87171; /* red-400 */
+  }
+
+  .auth-input-container.auth-input-error .auth-input {
+    border-color: #f87171; /* red-400 */
+  }
+
+  .auth-input-container.auth-input-error .auth-input:focus {
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2); /* red-400 with 20% opacity */
+  }
+
+  .auth-input-container.auth-input-success .auth-input {
+    border-color: #34d399; /* green-400 */
+  }
+
+  .auth-input-container.auth-input-success .auth-input:focus {
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); /* green-400 with 20% opacity */
+  }
+
+  .auth-input:disabled {
+    background-color: #374151; /* gray-700 */
+    color: #6b7280; /* gray-500 */
+  }
+
+  .auth-input:disabled + .auth-input-label {
+    color: #6b7280; /* gray-500 */
+  }
+
+  .auth-input::placeholder {
+    color: #6b7280; /* gray-500 */
+  }
+}

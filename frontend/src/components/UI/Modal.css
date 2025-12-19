@@ -1,0 +1,174 @@
+.auth-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.auth-modal {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  outline: none;
+}
+
+.auth-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+}
+
+.auth-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827; /* gray-900 */
+  margin: 0;
+}
+
+.auth-modal-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280; /* gray-500 */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.auth-modal-close-button:hover {
+  background-color: #f3f4f6; /* gray-100 */
+  color: #111827; /* gray-900 */
+}
+
+.auth-modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.auth-modal-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid #e5e7eb; /* gray-200 */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Size variants */
+.auth-modal.max-w-sm {
+  max-width: 24rem; /* sm: 24rem */
+}
+
+.auth-modal.max-w-md {
+  max-width: 28rem; /* md: 28rem */
+}
+
+.auth-modal.max-w-lg {
+  max-width: 32rem; /* lg: 32rem */
+}
+
+.auth-modal.max-w-xl {
+  max-width: 36rem; /* xl: 36rem */
+}
+
+.auth-modal.max-w-2xl {
+  max-width: 42rem; /* 2xl: 42rem */
+}
+
+.auth-modal.max-w-3xl {
+  max-width: 48rem; /* 3xl: 48rem */
+}
+
+.auth-modal.max-w-4xl {
+  max-width: 56rem; /* 4xl: 56rem */
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .auth-modal {
+    margin: 0.5rem;
+    max-height: calc(100vh - 1rem);
+  }
+
+  .auth-modal-header,
+  .auth-modal-body,
+  .auth-modal-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Animations */
+.auth-modal-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.auth-modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.auth-modal-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.auth-modal-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Focus trap styles */
+.auth-modal:focus {
+  outline: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-modal {
+    background: #1f2937; /* gray-800 */
+  }
+
+  .auth-modal-header {
+    border-bottom-color: #374151; /* gray-700 */
+  }
+
+  .auth-modal-title {
+    color: white;
+  }
+
+  .auth-modal-close-button {
+    color: #d1d5db; /* gray-300 */
+  }
+
+  .auth-modal-close-button:hover {
+    background-color: #374151; /* gray-700 */
+    color: white;
+  }
+
+  .auth-modal-footer {
+    border-top-color: #374151; /* gray-700 */
+  }
+}

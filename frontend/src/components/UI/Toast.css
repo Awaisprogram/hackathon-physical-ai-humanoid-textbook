@@ -1,0 +1,149 @@
+/* Base toast styles */
+.auth-toast {
+  position: relative;
+  min-height: 56px;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: white;
+  overflow: hidden;
+  border-left-width: 4px;
+}
+
+.auth-toast-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.auth-toast-message {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Success toast */
+.auth-toast-success {
+  background-color: #10b981; /* green-500 */
+  border-left-color: #059669; /* green-600 */
+}
+
+/* Error toast */
+.auth-toast-error {
+  background-color: #ef4444; /* red-500 */
+  border-left-color: #dc2626; /* red-600 */
+}
+
+/* Warning toast */
+.auth-toast-warning {
+  background-color: #f59e0b; /* amber-500 */
+  border-left-color: #d97706; /* amber-600 */
+  color: #1f2937; /* gray-800 for contrast */
+}
+
+.auth-toast-warning .auth-toast-message {
+  color: #1f2937; /* gray-800 */
+}
+
+/* Info toast */
+.auth-toast-info {
+  background-color: #3b82f6; /* blue-500 */
+  border-left-color: #2563eb; /* blue-600 */
+}
+
+/* Close button */
+.auth-toast-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.75rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-toast-close:hover {
+  opacity: 1;
+}
+
+/* Toast container positioning */
+.auth-toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  max-width: 350px;
+  width: 100%;
+}
+
+/* Animation */
+.auth-toast-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.auth-toast-exit {
+  animation: slideOutRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .auth-toast {
+    width: calc(100vw - 2rem);
+    left: 1rem;
+    right: 1rem;
+    border-radius: 8px;
+  }
+
+  .auth-toast-container {
+    top: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+    max-width: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-toast-warning {
+    background-color: #fbbf24; /* amber-400 */
+    border-left-color: #f59e0b; /* amber-500 */
+    color: #1f2937; /* gray-800 */
+  }
+
+  .auth-toast-warning .auth-toast-message {
+    color: #1f2937; /* gray-800 */
+  }
+}

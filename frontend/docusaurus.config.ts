@@ -52,6 +52,7 @@ const config: Config = {
         src: 'img/robot.svg',
       },
       items: [
+
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
@@ -59,10 +60,11 @@ const config: Config = {
           label: 'Chapters', // Changed from Tutorial to Chapters
         },
         {
-          href: 'https://github.com/Awaisprogram/hackathon-physical-ai-humanoid-textbook',
-          label: 'GitHub',
+          type: 'custom-NavbarItem',
           position: 'right',
+          
         },
+        
       ],
     },
     footer: {
@@ -114,3 +116,4 @@ const config: Config = {
 };
 
 export default config;
+

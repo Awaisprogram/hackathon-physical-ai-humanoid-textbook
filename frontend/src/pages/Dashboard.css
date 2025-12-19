@@ -1,0 +1,59 @@
+/* --- Select Field Styles --- */
+
+/* Base styling to match auth-input-field and hide default arrow */
+.auth-input-field select.auth-select-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--auth-input-bg); /* Match input background */
+  border: 1px solid var(--auth-input-border); /* Match input border */
+  border-radius: 8px;
+  color: var(--auth-text); /* Match input text color */
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  
+  /* Custom Select Styling */
+  appearance: none; /* Hide default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* Add a custom icon for the dropdown */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23ccc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.75rem;
+  padding-right: 2.5rem; /* Make room for the custom icon */
+}
+
+/* Dark Mode Arrow Color (default) */
+:root {
+  --select-arrow-color: #ccc; 
+}
+/* Light Mode Arrow Color */
+[data-theme='light'] {
+  --select-arrow-color: #4a4a5a; 
+}
+/* Update the background image in light mode */
+[data-theme='light'] .auth-input-field select.auth-select-field {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%234a4a5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Focus state */
+.auth-input-field select.auth-select-field:focus {
+  outline: none;
+  border-color: var(--auth-accent);
+  box-shadow: 0 0 0 3px var(--auth-input-focus);
+}
+
+/* Option text color (often inherited from the select) */
+.auth-input-field select.auth-select-field option {
+  /* This often doesn't work perfectly across all browsers/OS, but helps */
+  color: var(--auth-text);
+  background: var(--auth-bg); /* Ensures dropdown options have a matching background */
+}
+
+/* Disabled state */
+.auth-input-field select.auth-select-field:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
