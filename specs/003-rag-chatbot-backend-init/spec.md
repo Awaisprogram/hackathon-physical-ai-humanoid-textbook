@@ -5,7 +5,7 @@
 **Status**: Draft
 **Input**: User description: "Initialize backend for RAG Chatbot using FastAPI with dependencies fastapi[standard], openai-agents, python-dotenv, qdrant-client, uvicorn. Setup basic project structure and environment."
 
-## User Scenarios & Testing *(mandatory)*
+## User Scenarios & Testing _(mandatory)_
 
 ### User Story 1 - Backend Environment Setup (Priority: P1)
 
@@ -28,24 +28,24 @@ A developer or administrator wants to quickly set up the backend environment for
 - What happens when a required dependency fails to install? The setup process should report the error clearly and halt.
 - How does the system handle missing or malformed environment variables? It should provide informative error messages during startup.
 
-## Requirements *(mandatory)*
+## Requirements _(mandatory)_
 
 ### Functional Requirements
 
--   **FR-001**: System MUST provide a mechanism to install all specified Python dependencies (`fastapi[standard]`, `openai-agents`, `python-dotenv`, `qdrant-client`, `uvicorn`).
--   **FR-002**: System MUST support loading environment variables from a `.env` file.
--   **FR-003**: System MUST provide a basic FastAPI application structure as a starting point.
--   **FR-004**: System MUST ensure the FastAPI application can be started and stopped cleanly.
+- **FR-001**: System MUST provide a mechanism to install all specified Python dependencies (`fastapi[standard]`, `openai-agents`, `python-dotenv`, `qdrant-client`, `uvicorn`).
+- **FR-002**: System MUST support loading environment variables from a `.env` file.
+- **FR-003**: System MUST provide a basic FastAPI application structure as a starting point.
+- **FR-004**: System MUST ensure the FastAPI application can be started and stopped cleanly.
 
-### Key Entities *(include if feature involves data)*
+### Key Entities _(include if feature involves data)_
 
--   **Environment Configuration**: Represents key-value pairs for API keys, database URLs, etc.
+- **Environment Configuration**: Represents key-value pairs for API keys, database URLs, etc.
 
 ## Clarifications
 
 ### Session 2025-12-02
 
-- Q: What specific Python version (e.g., 3.9, 3.10, 3.11) should be used for the backend? → A: Python 3.11
+- Q: What specific Python version (e.g., 3.9, 3.12, 3.11) should be used for the backend? → A: Python 3.11
 
 - Q: Is the existing proposed backend folder structure (`backend/src/models/`, `backend/src/services/`, `backend/src/api/`, `backend/tests/`) suitable for this RAG Chatbot backend, or should it be modified? → A: Use existing structure
 
@@ -53,10 +53,10 @@ A developer or administrator wants to quickly set up the backend environment for
 
 - Q: Is auto-reload with Uvicorn required for the development environment? → A: Yes, enable auto-reload for development efficiency.
 
-## Success Criteria *(mandatory)*
+## Success Criteria _(mandatory)_
 
 ### Measurable Outcomes
 
--   **SC-001**: All specified backend dependencies are installed within 5 minutes on a standard development machine.
--   **SC-002**: The basic FastAPI application successfully starts within 10 seconds after execution.
--   **SC-003**: Environment variables defined in `.env` are correctly loaded and accessible by the application at startup.
+- **SC-001**: All specified backend dependencies are installed within 5 minutes on a standard development machine.
+- **SC-002**: The basic FastAPI application successfully starts within 10 seconds after execution.
+- **SC-003**: Environment variables defined in `.env` are correctly loaded and accessible by the application at startup.
