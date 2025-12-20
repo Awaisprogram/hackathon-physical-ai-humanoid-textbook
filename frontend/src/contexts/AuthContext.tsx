@@ -13,7 +13,8 @@ export const AuthProvider = ({ children }) => {
   } = useDocusaurusContext();
 
   // Constants
-  const API_URL = customFields.BACKEND_URL || 'http://localhost:8000';
+  const API_URL = 'https://textbook-backend.vercel.app';
+
 
   useEffect(() => {
     const initAuth = async () => {
