@@ -5,6 +5,7 @@ from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 from contextlib import asynccontextmanager
 from pydantic import BaseModel
+from typing import List, Literal, Optional # Ensure Optional and Literal are imported
 
 
 # --- CHATBOT ----
