@@ -5,9 +5,6 @@ from sqlmodel import select
 from sqlmodel.ext.asyncio.session import AsyncSession
 from contextlib import asynccontextmanager
 from pydantic import BaseModel
-from typing import List, Literal, Optional # Ensure Optional and Literal are imported
-import os
-from dotenv import load_dotenv
 
 
 # --- CHATBOT ----
@@ -44,13 +41,9 @@ origins = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://127.00.1:3000",
+    "https://hackathon-physical-ai-humanoid-text-ten.vercel.app"
 ]
 
-load_dotenv()
-
-web_url = os.getenv("")
-if web_url:
-    origins.append(web_url)
 
 print("🌐 CORS allowed origins:", origins)
 
