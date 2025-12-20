@@ -6,8 +6,7 @@ import ThreeDotBounce from "./ThreeDotBounce";
 import { marked } from "marked";
 import sanitizeInput from "../utils/sanitizeInput";
 import { useChat } from "../../contexts/chatContext"; // <--- Import Context
-import './AIAssistantWidget.css';
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import './AIAssistantWidget.css';import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 interface ChatMessage {
   role: string;
@@ -74,7 +73,7 @@ export default function AIAssistantWidget() {
     // console.log("backend url:", customFields.BACKEND_URL);
 
     try {
-      const res = await fetch(`${customFields.BACKEND_URL}/chat`, {
+      const res = await fetch(`https://textbook-backend.vercel.app/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newMessages }),

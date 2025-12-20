@@ -48,7 +48,7 @@ origins = [
 
 load_dotenv()
 
-web_url = os.getenv("WEB_URL")
+web_url = os.getenv("")
 if web_url:
     origins.append(web_url)
 
