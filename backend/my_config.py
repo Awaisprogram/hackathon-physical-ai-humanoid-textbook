@@ -22,8 +22,31 @@ config = RunConfig(
     model_provider=external_client,
 )
 
+# ------------------------------ groq config ------------------------------ 
 
-# openrouter config 
+
+groq_key = os.getenv("GROQ_API_KEY")
+
+if not groq_key:
+    raise ValueError("GROQ_API_KEY not found in environment variables")
+
+groq_client = AsyncOpenAI(
+    api_key=groq_key,
+    base_url="https://api.groq.com/openai/v1",
+)
+
+groq_model = OpenAIChatCompletionsModel(
+    model="openai/gpt-oss-20b", 
+    openai_client=groq_client
+)
+
+groq_config = RunConfig(
+    model=groq_model,
+    model_provider=groq_client
+)
+
+
+#  ------------------------------ openrouter_key config ------------------------------ 
 
 openrouter_key = os.getenv("OPENROUTER_API_KEY")
 
@@ -36,12 +59,11 @@ openrouter_client = AsyncOpenAI(
 )
 
 openrouter_model = OpenAIChatCompletionsModel(
-    # model="meta-llama/llama-3.3-70b-instruct:free",  # Better free model
-    model="openai/gpt-oss-20b:free",  # Better free model
+    model="openai/gpt-oss-20b:free", 
     openai_client=openrouter_client
 )
 
 open_router_config = RunConfig(
     model=openrouter_model,
-    tracing_disabled=True,  # Critical: Disable tracing to avoid OpenAI calls
+    tracing_disabled=True,  
 )

@@ -10,7 +10,8 @@ from typing import List, Literal, Optional # Ensure Optional and Literal are imp
 
 # --- CHATBOT ----
 from agents import Agent, Runner 
-from my_config import openrouter_key, open_router_config
+from my_config import groq_key, groq_config
+import os
 from qdrant.retrieving import retrieve
 
 # --- AUTH & DB IMPORTS ---
@@ -258,7 +259,7 @@ async def customize_text_content(
         customized_result = await Runner.run(
             customization_agent,
             input="\n".join([f"{m.role}: {m.text}" for m in messages_for_llm]), 
-            run_config=open_router_config, 
+            run_config=groq_config, 
         )
 
         print("✅ Content customized successfully")
@@ -408,7 +409,7 @@ You operate strictly under these constraints and respond consistently according 
     result = await Runner.run(
         agent,
         input=conversation_input,
-        run_config=open_router_config,
+        run_config=groq_config,
     )
 
     print("✅ Response generated successfully")
@@ -425,6 +426,6 @@ async def health_check():
     """API health check endpoint."""
     return {
         "status": "healthy",
-        "api_key_configured": bool(openrouter_key),
+        "api_key_configured": bool(groq_key),
         "web_url": os.getenv("WEB_URL", "not configured"),
     }
